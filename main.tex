@@ -1,0 +1,372 @@
+\documentclass[11pt,a4paper]{article}
+%%%%%%%%%%%%%%%%%%%%%%%%% Credit %%%%%%%%%%%%%%%%%%%%%%%%
+
+% template ini dibuat oleh martin.manullang@if.itera.ac.id untuk dipergunakan oleh seluruh sivitas akademik itera.
+
+%%%%%%%%%%%%%%%%%%%%%%%%% PACKAGE starts HERE %%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{graphicx}
+\usepackage{caption}
+\captionsetup[figure]{name=Gambar}
+\usepackage{tabulary}   
+% \usepackage{amsmath}
+\usepackage{fancyhdr}
+% \usepackage{amssymb}
+% \usepackage{amsthm}
+\usepackage{placeins}
+% \usepackage{amsfonts}
+\usepackage{graphicx}
+\usepackage[all]{xy}
+\usepackage{tikz}
+\usepackage{verbatim}
+\usepackage[left=2cm,right=2cm,top=3cm,bottom=2.5cm]{geometry}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+    linkcolor={red!50!black},
+    citecolor={blue!50!black},
+    urlcolor={blue!80!black}
+}
+\usepackage{libertine}
+\usepackage{libertinust1math}
+\usepackage[T1]{fontenc}
+\usepackage{inconsolata}
+\usepackage{float}
+
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{multirow}
+\usepackage{psfrag}
+\usepackage[T1]{fontenc}
+\usepackage[scaled]{beramono}
+% Enable inserting code into the document
+\usepackage{listings}
+\usepackage{xcolor} 
+% custom color & style for listing
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\lstdefinestyle{mystyle}{
+	backgroundcolor=\color{backcolour},   
+	commentstyle=\color{green},
+	keywordstyle=\color{codegreen},
+	numberstyle=\tiny\color{codegray},
+	stringstyle=\color{codepurple},
+	basicstyle=\ttfamily\footnotesize,
+	breakatwhitespace=false,         
+	breaklines=true,                 
+	captionpos=b,                    
+	keepspaces=true,                 
+	numbers=left,                    
+	numbersep=5pt,                  
+	showspaces=false,                
+	showstringspaces=false,
+	showtabs=false,                  
+	tabsize=2
+}
+\lstset{style=mystyle}
+\renewcommand{\lstlistingname}{Kode}
+%%%%%%%%%%%%%%%%%%%%%%%%% PACKAGE ends HERE %%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%% Data Diri %%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\stuid}{120140199}
+\newcommand{\student}{\textbf{Chaterine Sidabutar (\stuid{})}}
+\newcommand{\course}{\textbf{Sistem Operasi (IF2223)}}
+\newcommand{\assignment}{\textbf{03}} % tugas ke...
+
+%%%%%%%%%%%%%%%%%%% using theorem style %%%%%%%%%%%%%%%%%%%%
+\newtheorem{thm}{Theorem}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{defn}[thm]{Definition}
+\newtheorem{exa}[thm]{Example}
+\newtheorem{rem}[thm]{Remark}
+\newtheorem{coro}[thm]{Corollary}
+\newtheorem{quest}{Question}[section]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{lipsum}%% a garbage package you don't need except to create examples.
+\usepackage{fancyhdr}
+\usepackage[ddmmyyyy]{datetime}
+\pagestyle{fancy}
+\lhead{ \student }
+\rhead{ \thepage}
+\cfoot{\textbf{HandsOn 3 : Docker}} % ini untuk judul tugas
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+
+%%%%%%%%%%%%%%  Shortcut for usual set of numbers  %%%%%%%%%%%
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\setlength\headheight{14pt}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%555
+
+\begin{document}
+\thispagestyle{empty}
+\begin{center}
+	\includegraphics[scale = 0.15]{Figure/ifitera-header.png}
+	\vspace{0.1cm}
+\end{center}
+\noindent
+% change font family for header section only
+%{\fontfamily{LinuxLibertineT-OsF}\large\selectfont 
+{\large
+\rule{17cm}{0.2cm}\\[0.3cm]
+Nama: \student \hfill Tugas Ke: \assignment\\[0.1cm]
+Mata Kuliah: \course \hfill Tanggal: \today\\
+\rule{17cm}{0.05cm}
+\vspace{0.1cm}
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% BODY DOCUMENT %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{center}
+\begin{tabular}{ |c|c| }
+ \hline
+ \multicolumn{2}{|c|}{\textbf{Daftar Anggota Kelompok}} \\
+ \hline
+ NIM & Nama \\
+ \hline
+ 120140130 & Hilmanda Panji Orienski \\ 
+ 120140138 & Jhon Penator Sianturi \\ 
+ 120140199 & Chaterine Sidabutar \\
+ \hline
+\end{tabular}
+\end{center}
+
+\section{Tujuan HandsOn}
+Tujuan dari HandsOn kali ini adalah untuk membuat mahasiswa memahami tentang cara kerja Docker, memahami perintah-perintah dasar yang digunakan dalam Docker serta apa kegunaan dari perintah tersebut.
+
+
+\section{Instalisasi}
+Pada HandsOn kali ini hal pertama yang dilakukan adalah mendownload Docker dan saya mengunakan Docker yang dijalankan pada sistem operasi Windows.
+\subsection{Requirements}
+\begin{figure}[h]
+        \centering
+        \begin{subfigure}[b]{0.4\textwidth}
+            \centering
+            \def\svgwidth{\columnwidth}
+            \includegraphics[width=1\textwidth]{Figure/instaldocker.png}
+        \end{subfigure}
+        \qquad %add desired spacing between images, e. g. ~, \quad, \qquad, \hfill etc. 
+        %(or a blank line to force the subfigure onto a new line)
+        \begin{subfigure}[b]{0.4\textwidth}
+            \centering
+            \def\svgwidth{\columnwidth}
+            \includegraphics[width=1\textwidth]{Figure/instal done.png}
+        \end{subfigure}
+        \caption{Menginstal Docker}\label{fig:aug}
+    \end{figure}
+
+Pada step ini menginstal docker yang terlihat pada gambar bahwa instaler docker meng-unpacking file-file yang dibutuhkan untuk menjalankan docker.
+\begin{figure}[h]
+	\centering
+	\includegraphics[width = 0.7\textwidth]{Figure/wsl.png}
+	\caption{Instalasi Manual WSL 2 Lewat Terminal Windows}
+\end{figure}
+\newpage
+Hal penting pertama yang harus dilakukan adalah mendownload dan menginstal docker desktop dari docker hub. Selanjutnya install docker, untuk yang sebelumnya belum menginstal wsl2 akan di melakukan Manual Installation.
+\begin{figure}[h]
+	\centering
+	\includegraphics[width = 0.7\textwidth]{Figure/widocker.jpg}
+	\caption{Docker Sedang Starting}
+\end{figure}
+\newpage
+\section{Percobaan}
+\subsection{Hello-World}
+Percobaan ini  dilakukan setelah Docker berhasil
+diInstall dan kita telah dapat menjalankan perintah 
+Docker dengan menggunakan PowerShell atau Command Prompt.
+Kita dapat melakukan pengecekan dengan mengetikkan
+perintah berikut pada PowerShell.
+\begin{lstlisting}[language=bash]
+	Docker run Hello-World
+\end{lstlisting}
+\begin{figure}[h]
+	\centering
+	\includegraphics[width = 0.7\textwidth]{Figure/hello world.jpg}
+	\caption{Docker run hello-world}
+\end{figure}
+
+\subsection{Alpine linux}
+Langkah selanjunya kita akan coba menjalankan container dari \textit{Alpine Linux} yang telah di instal di dekstop kita. Perintah yang digunakan pada langkah ini adalah dengan melakukan pull container dan dengan menggunakan perintah sebagai berikut.
+\begin{lstlisting}[language = bash]
+	Docker Pull Alpine
+\end{lstlisting}
+\begin{figure}[h]
+	\centering
+	\includegraphics[width = 0.7\textwidth]{Figure/pull alpine.png}
+	\caption{Docker Pull Alpine}
+\end{figure}
+
+\subsection{Docker Images}
+Pada percobaan selanjutnya melakukan pengecekan semua image yang pernah kita pull atau unduh menggunakan perintah sebagai berikut.
+\begin{lstlisting}[language = bash]
+	Docker images
+\end{lstlisting}
+maka outpunnya sebagi berikut
+\begin{figure}[h]
+	\centering
+	\includegraphics[width = 0.7\textwidth]{Figure/docker image.png}
+	\caption{Docker run Image}
+\end{figure}
+Langkah berikutnya kita akan mencoba menjalankan salah satu Container dengan menggunakan perintah sebagai berikut
+\begin{lstlisting}[language = bash]
+	Docker run alpine ls -l
+\end{lstlisting} 
+\begin{figure}[h]
+	\centering
+	\includegraphics[width = 0.7\textwidth]{Figure/ls -l.png}
+	\caption{Docker Run Alpine ls -l}
+\end{figure}
+Selanjutnya kita akan mencoba menampilkan di terminal yaitu "Hello World" dengan menggunakan perintah \textit{container alpine docker} dengan bantuan perintah echo yang terdapat pada container alpine. Perintah yang digunakan sebagai berikut
+\begin{lstlisting}[language=bash]
+	Docker run echo "Hello World"
+\end{lstlisting}
+\begin{figure}[h]
+	\centering
+	\includegraphics[width = 0.7\textwidth]{Figure/run echo.png}
+	\caption{Hello World Pada Alpine}
+\end{figure}
+\newpage
+Kemudian kita akan mencoba masuk kedalam bash dari Container alpine tersebut. Untuk masuk kedalam kontaner Alpine kita harus manambah option ketika menjalankan Container tersebut. Perintah yang kita gunakan sebagai berikut.
+\begin{lstlisting}[language = bash]
+	Docker run alpine -it /bin/sh 
+\end{lstlisting}
+\begin{figure}[h]
+	\centering
+	\includegraphics[width = 0.7\textwidth]{Figure/it sh.jpg}
+	\caption{Bash dari Container Alpine}
+\end{figure}
+Selanjutnya kita akan mencoba menampilkan list dari seluruh file yang pasa bin/sh dengan memberikan command atau perintah baru di dalam /bin/sh tersebut, dapat kita lihat seperti di bawah.
+\begin{lstlisting}[language = bash]
+	/ # ls
+\end{lstlisting}
+\begin{figure}[h]
+	\centering
+	\includegraphics[width = 0.7\textwidth]{Figure/ls run it.jpg}
+	\caption{List dari /bin/sh}
+\end{figure}
+Kemudian untuk menampilkan seluruh informasi dasar yang dimiliki oleh sistem dengan kita akan memberikan perintah sebagai berikut.
+\begin{lstlisting}[language = bash]
+	/ # uname -a
+\end{lstlisting}
+\begin{figure}[h]
+	\centering
+	\includegraphics[width = 0.7\textwidth]{Figure/uname.jpg}
+	\caption{Uname -a dari /bin/sh}
+\end{figure}
+Selanjutnya kita dapat keluar dari bash dengan menggunakan perintah
+\begin{lstlisting}[language = bash]
+	/ # exit
+\end{lstlisting}
+Langkah terakhir yaitu menampilkan \textit{container} yang telah dijalakan sebelumnya, dengan menggunakan perintah
+\begin{lstlisting}[language = bash]
+	Docker ps -a
+\end{lstlisting}
+\begin{figure}[h]
+	\centering
+	\includegraphics[width = 0.7\textwidth]{Figure/ps -a.jpg}
+	\caption{Docker ps -a}
+\end{figure}
+\newpage
+Untuk melihat container yang telah kita jalankan pada Aplikasi docker sebelumnya seperti gambar di bawah ini
+\begin{figure}[h]
+	\centering
+	\includegraphics[width = 0.7\textwidth]{Figure/containers.jpg}
+	\caption{Riwayat Container Desktop}
+\end{figure}
+\section{Pertanyaan Hands On}
+\subsection{Apa itu Docker}
+Docker adalah layanan yang menyediakan kemampuan untuk mengemas dan menjalankan sebuah aplikasi dalam sebuah lingkungan terisolasi yang disebut dengan container. Dengan adanya isolasi dan keamanan yang memadai memungkinkan kamu untuk menjalankan banyak container di waktu yang bersamaan pada host tertentu.
+
+
+\subsection{Apa fungsi dari perintah perintah "docker run"}
+Perintah docker run digunakan untuk menjalankan proses dalam container yang terisolasi. Images yang
+terdapat dalam container akan dieksekusi sesuai dengan konfigurasi yang akan dibuat. Ketika perintah docker run dijalankan, image container akan dieksekusi seolah-olah Anda sedang menjalankan aplikasi. Biasanya,
+memiliki beberapa port yang terbuka sehingga aplikasi di dalam container yang sedang berjalan dapat diakses
+dari luar container.
+perintah "docker run" berfungsi intuk menjalankan sebuah Container. ketika "docker run" di ketikan 
+oleh user maka docker akan mencari image yang sesuai dengan Container tersebut
+secara lokal kemudaian menjalankannya. jika tidak terdapat image yang sesuai dengan Container tersebut di local,
+docker akan mencarinya di global dan akan mengunduh(pulling) image tersebut ke dalam local, dan kemudaian menjalankan
+Container tersebut.\\
+berikut Command yang dapat di gunakan untuk menjalankan sebuah Container:
+\begin{lstlisting}[language = bash]
+	docker run [image] #hanya menjalankan Containernya
+
+	docker run [image] [Command] #menjalankan Container sekaligus Commandnya (contoh Command = echo)
+
+	docker run [option] [image] [Command] #menjalankan image beserta option yang terdapat pada docker(Contoh option = -i)
+\end{lstlisting}
+untuk dapat mencari option yang sesuai dengan kebutuhan kita dapat kita ketikan "docker run --help".
+di dalamnya terdapat banyak macam-macam option yang di sediakan oleh Docker
+\begin{figure}[h]
+	\centering
+	\includegraphics[width = 0.7\textwidth]{Figure/docker-run-help.png}
+	\caption{help untuk docker run}
+\end{figure}
+
+\subsection{Apa yang dimaksud dengan Conatainer}
+Container dapat dikatakan sebagai sebuah folder yang terisolasi. Container ini digunakan untuk 
+membungkus images yang berupa aplikasi atau tools yang ingin di isolasi. Karena siafat 
+dari Container ini terisolasi, maka perubahan apapun yang dilakukan didalamnya tidak akan
+mempengarudhi os yang ada di luar Container tersebut. selain itu aplikasi atau tools yang 
+ada dalam tersebut hanya dapat berkomunikasi dan berinteraksi dengan aplikasi atau tools ynag
+sama-sama ada dalam container yang sama. meskipun terdapat aplikasi tertentu yang dapat 
+diakses dari luar container dengan cara  mengekpose port-nya keluar Container.
+
+\subsection{Apa fungsi dari perintah "docker ps -a"}
+perintah ini berfungsi untuk menampilkan seluruh Container baik yang sedang berjalan maupun yang telah berhenti. 
+data tersebut mencangkup Container id, image, command, created, Status, ports, dan juga nama dari container.
+\begin{lstlisting}[language = bash]
+	docker ps -a
+\end{lstlisting}
+\begin{figure}[h]
+	\centering
+	\includegraphics[width = 0.7\textwidth]{Figure/ps -a.jpg}
+\end{figure}
+
+\newpage
+\subsection{Apa fungsi dari perintah "docker run -it"}
+sama halnya dengan perintah "docker run" biasa, perintah "docker run -it" juga berfungsi untuk menjalankan
+sebauah Container baru, tetapi terdapat penambahan pada bagian [Command]. Command "-it" memungkinkan kita untuk menjalankan container dalam mode interaktif, artinya kita bisa mengeksekusi command lain didalam container yang sedang berjalan.\\
+seperti gambar berikut.
+\begin{figure}[h]
+	\centering
+	\includegraphics[width = 0.7\textwidth]{Figure/docker run alpine.png}
+\end{figure}
+
+
+\subsection{Apa yang dimaskud dengan images}
+Docker images adalah file yang digunakan untuk mengeksekusi kode dalam Docker container. Docker images bertindak sebagai sekumpulan kode instruksi untuk membangun Docker container. Docker images mirip dengan snapshot di Virtual Machine (VM). \cite{images_2021}
+
+\subsection{Apa yang dimaksud dengan deamon}
+Docker daemon adalah sebuah service yang dijalankan di dalam host OS. Docker daemon ini
+berfunsi untuk membangun, mendistribusikan, dan menjalankan container docker.
+kita tidak dapat secara lengsung mengakses docker daemon, akan tetapi untuk menggunakan docker
+daemon dapat menggunakan docker client sebagai perantara atau CLI. \cite{contributor_2005}
+
+
+\section{Kesimpulan}
+Dari Hands On 3 kali ini dapat ditarik Kesimpulan bahwa Docker adalah sebuah sofware yang 
+dapat memebantu dalam melakukan developing, shipping, dan running aplikasi melalui
+infrastruktur yang yang terpisah dari OS utama, sehingga resouce yang diperlukan 
+dalam proses pengembangan aplikasi tersebut akan lebih sedikit.
+
+\section{Link GitHub}
+	Link GitHub dari Hands On 3 ini : \href{https://github.com/JhonPudan35/HandsOn-3}{Klik disini}
+
+\newpage
+\bibliographystyle{IEEEtran}
+\bibliography{Referensi}
+
+
+
+
+\end{document}
